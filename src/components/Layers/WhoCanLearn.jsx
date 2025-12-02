@@ -3,6 +3,13 @@
 import { useEffect, useState } from "react";
 import styles from "./WhoCanLearn.module.css";
 
+const courses = [
+  "Basic English Course",
+  "Advanced English Course",
+  "Business English Course",
+  "Spoken English for Students",
+];
+
 const learners = [
   {
     title: "Working professionals",
@@ -45,7 +52,6 @@ const learners = [
 export default function WhoCanLearn() {
   const [index, setIndex] = useState(0);
 
-  // auto-change every 9 seconds
   useEffect(() => {
     const id = setInterval(() => {
       setIndex((prev) => (prev + 1) % learners.length);
@@ -63,14 +69,24 @@ export default function WhoCanLearn() {
   return (
     <section className={styles.section}>
       <div className={styles.inner}>
+        {/* LEFT: You can learn */}
         <div className={styles.leftText}>
-          <p className={styles.label}>You can learn</p>
-          <h2 className={styles.bigWord}>English</h2>
-          <h2 className={styles.bigWord}>English</h2>
-          <h2 className={styles.bigWord}>English</h2>
-          <h2 className={styles.bigWord}>English</h2>
+          <h2 className={styles.leftHeading}>You can learn</h2>
+
+          <p className={styles.leftSub}>
+            Choose the English course that matches your goals and current level.
+          </p>
+
+          <div className={styles.courseGrid}>
+            {courses.map((course) => (
+              <article key={course} className={styles.courseCard}>
+                <h3 className={styles.courseTitle}>{course}</h3>
+              </article>
+            ))}
+          </div>
         </div>
 
+        {/* RIGHT: Who can learn */}
         <div className={styles.rightBlock}>
           <h2 className={styles.heading}>Who can learn?</h2>
 

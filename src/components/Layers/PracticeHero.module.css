@@ -1,0 +1,166 @@
+:root {
+  --brand-main: #A62455;
+  --brand-purple: #7B275C;
+  --brand-blue: #1F3D7A;
+  --accent-orange: #F29A2E;
+  --accent-page: #F9E4C0;
+  /* --text-main: #F9FAFB; */
+}
+
+/* full-width dark gradient */
+.section {
+  padding: 4rem 1.75rem 4.5rem;
+  background: radial-gradient(circle at top left, #ffd4b0 0, #1b1230 40%, #050816 80%);
+  color: var(--text-main);
+}
+
+.inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+/* LEFT */
+
+.left {
+  max-width: 560px;
+}
+
+.heading {
+  font-size: clamp(2.2rem, 3.2vw + 1rem, 3rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #fdf2ff;
+  margin-bottom: 1rem;
+}
+
+.subheading {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #e5e7eb;
+  margin-bottom: 1.6rem;
+}
+
+.bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.bullets li {
+  position: relative;
+  padding-left: 1.4rem;
+  font-size: 0.95rem;
+  color: #e5e7eb;
+}
+
+.bullets li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 0.85rem;
+  color: var(--accent-orange);
+}
+
+/* RIGHT CARD */
+
+.card {
+  background: radial-gradient(circle at top, rgba(249, 228, 192, 0.2), rgba(5, 8, 22, 0.98));
+  border-radius: 1.5rem;
+  border: 1px solid rgba(249, 228, 192, 0.18);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.65);
+  overflow: hidden;
+  max-width: 380px;
+  justify-self: end;
+}
+
+.cardHeader {
+  background: linear-gradient(90deg, var(--brand-purple), var(--brand-main));
+  padding: 0.9rem 1.4rem;
+  font-weight: 700;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.cardBody {
+  padding: 2rem 1.8rem 1.8rem;
+  text-align: center;
+}
+
+.avatarCircle {
+  width: 130px;
+  height: 130px;
+  margin: 0 auto 1.25rem;
+  border-radius: 999px;
+  border: 3px solid rgba(249, 228, 192, 0.7);
+  box-shadow: 0 0 25px rgba(242, 154, 46, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #ffe0ef, #7b275c);
+}
+
+.status {
+  font-size: 0.95rem;
+  color: #e5e7eb;
+  margin-bottom: 1.25rem;
+}
+
+/* CTA button */
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 2.4rem;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #ffd4b0, #ffe0ef);
+  color: #1f2937;
+  font-weight: 700;
+  font-size: 0.98rem;
+  cursor: pointer;
+  box-shadow: 0 18px 38px rgba(166, 36, 85, 0.55);
+  transition: transform 0.18s ease, box-shadow 0.18s ease,
+    filter 0.18s ease;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 24px 48px rgba(166, 36, 85, 0.65);
+  filter: brightness(1.03);
+}
+
+.cardNote {
+  margin-top: 0.9rem;
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+/* responsive */
+
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .card {
+    justify-self: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 3rem 1.25rem 3.5rem;
+  }
+
+  .heading {
+    text-align: left;
+  }
+}

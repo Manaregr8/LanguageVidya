@@ -12,8 +12,7 @@
 
 .section {
   padding: 4rem 1.5rem;
-  background: linear-gradient(135deg, #ffe0ef, #ffd4b0),
-
+  background: linear-gradient(135deg, #ffe0ef, #ffd4b0);
 }
 
 .inner {
@@ -25,27 +24,63 @@
   gap: 3rem;
 }
 
-/* LEFT TEXT */
+/* LEFT: "You can learn" */
 
 .leftText {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(166, 36, 85, 0.12);
   color: var(--text-main);
 }
 
-.label {
-  font-size: 2.5rem;
-  font-weight: 500;
-  margin-bottom: 1.5rem;
+.leftHeading {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
   color: var(--brand-blue);
 }
 
-.bigWord {
-  font-size: 2.4rem;
-  line-height: 1.1;
-  font-weight: 700;
+.leftSub {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #4b5563;
+  margin-bottom: 1.25rem;
+}
+
+/* course cards on left */
+
+.courseGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.75rem;
+}
+
+.courseCard {
+  background: var(--accent-page);
+  border-radius: 14px;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(31, 61, 122, 0.14);
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+    border-color 0.2s ease, background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.courseTitle {
+  font-size: 0.9rem;
+  font-weight: 600;
   color: var(--brand-main);
 }
 
-/* RIGHT BLOCK */
+.courseCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 30px rgba(31, 61, 122, 0.25);
+  border-color: var(--brand-main);
+  background-color: #fff7eb;
+}
+
+/* RIGHT: "Who can learn?" */
 
 .rightBlock {
   background: #ffffff;
@@ -79,7 +114,7 @@
   gap: 0.75rem;
 }
 
-/* CARD */
+/* AUDIENCE CARDS */
 
 .card {
   background: var(--accent-page);
@@ -87,7 +122,7 @@
   padding: 1rem 1.1rem;
   border: 1px solid rgba(31, 61, 122, 0.14);
   transition: transform 0.2s ease, box-shadow 0.2s ease,
-              border-color 0.2s ease, background-color 0.2s ease;
+    border-color 0.2s ease, background-color 0.2s ease;
   cursor: pointer;
 }
 
@@ -118,7 +153,7 @@
   display: block;
 }
 
-/* HOVER */
+/* HOVER STATES */
 
 .card:hover {
   transform: translateY(-6px);
@@ -156,7 +191,7 @@
   color: var(--brand-blue);
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.2s ease,
-              box-shadow 0.2s ease, color 0.2s ease;
+    box-shadow 0.2s ease, color 0.2s ease;
 }
 
 .navButton:hover {
@@ -185,7 +220,7 @@
     padding: 3rem 1rem;
   }
 
-  .bigWord {
-    font-size: 2rem;
+  .courseGrid {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
