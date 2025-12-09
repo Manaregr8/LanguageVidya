@@ -10,18 +10,16 @@ export default function PracticeHero() {
       <div className={styles.inner}>
         {/* LEFT: text */}
         <div className={styles.left}>
-          <h1 className={styles.heading}>Test your language skills</h1>
+          <h1 className={styles.heading}>Test Your Language Skills</h1>
           <p className={styles.subheading}>
-            Take quick, interactive quizzes to check your grammar, vocabulary,
-            and speaking confidence. Get instant feedback and see exactly which
-            topics to improve next.
+            Check your grammar, vocabulary, confidence, and speaking clarity with fast, interactive quizzes. Get instant results and a personalised improvement plan.
           </p>
 
           <ul className={styles.bullets}>
-            <li>Real-time score and detailed reports</li>
-            <li>Level-based tests for beginners to advanced learners</li>
-            <li>Speaking, listening, reading, and writing modules</li>
-            <li>Personalised practice suggestions after every test</li>
+            <li>Real-time score & insights</li>
+            <li>Beginner to advanced tests</li>
+            <li>Speaking, listening, reading, writing modules</li>
+            <li>Smart improvement suggestions</li>
           </ul>
         </div>
 
@@ -34,7 +32,7 @@ export default function PracticeHero() {
               {/* place your quiz / bot icon img here */}
             </div>
             <p className={styles.status}>Ready when you are</p>
-            <button className={styles.ctaButton}>Start free test</button>
+            <button className={styles.ctaButton}>Start Free Test</button>
             <p className={styles.cardNote}>
               5–7 minutes • Instant results • No payment required
             </p>

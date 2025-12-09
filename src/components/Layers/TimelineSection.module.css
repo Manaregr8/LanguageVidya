@@ -1,10 +1,10 @@
 :root {
-  --brand-main: #A62455;
-  --brand-purple: #7B275C;
-  --brand-blue: #1F3D7A;
-  --accent-orange: #F29A2E;
-  --accent-page: #F9E4C0;
-  --text-main: #1F2933;
+  --brand-main: #a62455;
+  --brand-purple: #7b275c;
+  --brand-blue: #1f3d7a;
+  --accent-orange: #f29a2e;
+  --accent-page: #f9e4c0;
+  --text-main: #1f2933;
 
   --bg-top: #a62455;
   --bg-bottom: #fff7eb;
@@ -12,21 +12,19 @@
 
 /* OUTER BLOCK */
 .section {
-   z-index: 100000;
   background: #fdf2f8;
   border-radius: 1.5rem;
-  position:relative;
+  position: relative;
   overflow: hidden;
   box-shadow: 0 24px 60px rgba(15, 23, 42, 0.16);
   margin: clamp(2.5rem, 5vw, 3rem) clamp(1rem, 4vw, 1.5rem);
 }
 
-/* TOP BAND */
+/* TOP BAND (unchanged) */
 .topBand {
   background: linear-gradient(90deg, var(--brand-main), var(--brand-purple));
   padding: 1.8rem clamp(1.5rem, 4vw, 1.9rem) 1.5rem;
   color: #f9fafb;
-  
 }
 
 .topInner {
@@ -51,48 +49,103 @@
 /* BOTTOM TIMELINE AREA */
 .bottom {
   background: var(--bg-bottom);
-  padding: clamp(2rem, 4vw, 2.6rem) clamp(1.4rem, 4vw, 1.9rem) clamp(2.4rem, 4vw, 2.9rem);
+  padding: clamp(2rem, 4vw, 2.6rem) clamp(1.4rem, 4vw, 1.9rem)
+           clamp(2.4rem, 4vw, 2.9rem);
 }
 
+/* 🎨 Horizontal timeline layout */
 .timeline {
   max-width: 1120px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: clamp(1.25rem, 2vw, 1.75rem);
+  position: relative;
 }
 
-/* SINGLE STEP */
-.step {
+/* 🎨 Soft connecting line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  margin-inline: 12px;
+  background: linear-gradient(90deg,
+    rgba(166, 36, 85, 0.12),
+    rgba(31, 61, 122, 0.35),
+    rgba(166, 36, 85, 0.12)
+  );
+  z-index: 0;
+}
+
+/* Step card – raised on hover */
+.stepCard {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: stretch;
+  gap: 0.75rem;
+  padding: 1.2rem 1rem 1.4rem;
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
-/* NUMBER CIRCLE */
+.stepCard:hover {
+  transform: translateY(-6px); /* 🎨 raised hover card */
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.16);
+  background: #ffffff;
+}
+
+/* Header: icon + connector mask */
+.stepHeader {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Gradient circular icon – consistent theme */
 .iconCircle {
-  width: 70px;
-  height: 70px;
+  width: 64px;
+  height: 64px;
   border-radius: 999px;
-  background: radial-gradient(circle at 30% 0, #ffe0ef, #ffd4b0);
-  border: 4px solid #ffffff;
-  box-shadow: 0 14px 32px rgba(166, 36, 85, 0.35);
+  background: conic-gradient(
+    from 180deg,
+    #ffe0ef,
+    #ffd4b0,
+    #fef3c7,
+    #ffe0ef
+  );
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 14px 32px rgba(166, 36, 85, 0.35);
+  border: 3px solid #ffffff;
+  position: relative;
 }
 
 .iconNumber {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: var(--brand-main);
 }
 
-/* TEXT */
-.stepText {
-  margin-top: 0.85rem;
-  text-align: center;
+/* Local connector segment (covers central line under the icon) */
+.connector {
+  flex: 1;
+  height: 2px;
+  margin-left: 0.5rem;
+  background: transparent; /* main line is handled by ::before on .timeline */
+}
+
+/* Text block */
+.stepBody {
+  text-align: left;
 }
 
 .stepTitle {
@@ -101,7 +154,7 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--brand-blue);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.35rem;
 }
 
 .stepDesc {
@@ -110,22 +163,56 @@
   color: #4b5563;
 }
 
-/* DESKTOP/TABLET GRID BREAKPOINTS */
+/* Remove line on last card edge (visually) using gradient fade */
+/* Fade out line at the end – desktop/tablet (horizontal) */
+.stepCard:last-child::after {
+  content: "";
+  position: absolute;
+  top: 40px;
+  right: -12px;
+  width: 32px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(166, 36, 85, 0.35),
+    rgba(166, 36, 85, 0)
+  );
+}
+
+/* Optional: fade-in at the beginning (first card) */
+.stepCard:first-child::before {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: -12px;
+  width: 32px;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    rgba(166, 36, 85, 0),
+    rgba(166, 36, 85, 0.35)
+  );
+}
+
+/* ---------- RESPONSIVE BREAKPOINTS ---------- */
+
+/* 3 columns on medium screens */
 @media (max-width: 1120px) {
   .timeline {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    row-gap: 2.3rem;
+    row-gap: 2.2rem;
   }
 }
 
-@media (max-width: 768px) {
+/* 2 columns on small tablets */
+@media (max-width: 800px) {
   .timeline {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     row-gap: 2rem;
   }
 }
 
-/* MOBILE – VERTICAL TIMELINE */
+/* Mobile – vertical timeline */
 @media (max-width: 640px) {
   .section {
     margin: 2.25rem 1rem;
@@ -140,18 +227,69 @@
     gap: 1.8rem;
   }
 
-  .step {
+  .stepCard {
     flex-direction: row;
     align-items: flex-start;
-    text-align: left;
-    gap: 1rem;
+    padding: 1rem 1rem 1.1rem;
+  }
+
+  .stepHeader {
+    flex-direction: column;
+    align-items: center;
+    margin-right: 0.75rem;
+  }
+
+  /* Vertical central line on mobile */
+  .timeline::before {
+    top: 0;
+    bottom: 0;
+    left: 40px;
+    right: auto;
+    width: 2px;
+    height: auto;
+    margin-inline: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(166, 36, 85, 0.12),
+      rgba(31, 61, 122, 0.35),
+      rgba(166, 36, 85, 0.12)
+    );
   }
 
   .iconCircle {
-    flex-shrink: 0;
+    margin-bottom: 0.5rem;
   }
 
-  .stepText {
-    margin-top: 0;
+  .stepBody {
+    text-align: left;
+  }
+
+  /* Vertical fade out on last step for mobile */
+  .stepCard:last-child::after {
+    top: auto;
+    bottom: -16px;
+    right: auto;
+    left: 40px;
+    width: 2px;
+    height: 32px;
+    background: linear-gradient(
+      180deg,
+      rgba(166, 36, 85, 0.35),
+      rgba(166, 36, 85, 0)
+    );
+  }
+
+  /* Optional: vertical fade-in at top on first step */
+  .stepCard:first-child::before {
+    top: -16px;
+    bottom: auto;
+    left: 40px;
+    width: 2px;
+    height: 32px;
+    background: linear-gradient(
+      180deg,
+      rgba(166, 36, 85, 0),
+      rgba(166, 36, 85, 0.35)
+    );
   }
 }

@@ -8,9 +8,33 @@
   --bg-hero: #ffe0ef;
 }
 
-.section {
-  padding: 4rem 1.5rem;
-  /* background: linear-gradient(135deg, #ffe0ef, #ffd4b0); */
+.section { margin-top: 20px;
+  margin-bottom: 20px;
+
+  /* Glassmorphism background (semi‑transparent so mandala shows & blurs) */
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+
+  /* Glass border + inner shine */
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  box-shadow:
+    0 14px 40px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+
+  position: relative;
+  overflow: hidden;
+  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1rem, 4vw, 3rem);
+}
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left,
+    rgba(255, 255, 255, 0.45),
+    transparent 100%);
+  pointer-events: none;
 }
 
 .grid {

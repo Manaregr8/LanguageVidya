@@ -5,8 +5,16 @@ import styles from "./AboutPage.module.css";
 export default function AboutPage() {
   return (
     <main className={styles.page}>
+      
       <section className={styles.hero}>
+         <img
+          src="/uploads/mandalafull.png"
+          alt=""
+          className={styles.heroMandala}
+          aria-hidden="true"
+        />
         <div className={styles.heroInner}>
+          
           <h1 className={styles.heading}>About Language Vidya</h1>
           <p className={styles.subheading}>
             Language Vidya helps learners build clear, confident English for

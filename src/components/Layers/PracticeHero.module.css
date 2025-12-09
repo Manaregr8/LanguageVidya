@@ -8,13 +8,33 @@
 }
 
 /* full-width light gradient */
-.section {
-  z-index: 10000;
-  /* padding: 4rem 1.75rem 4.5rem; */
-  /* background: linear-gradient(135deg, #ffd4b0 0%, #ffe0ef 100%); */
-  /* color: var(--text-main); */
-  /* position: relative;      for mandala */
-  /* overflow: hidden;        keep mandala inside */
+.section { margin-top: 20px;
+  margin-bottom: 20px;
+
+  /* Glassmorphism background (semi‑transparent so mandala shows & blurs) */
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+
+  /* Glass border + inner shine */
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  box-shadow:
+    0 14px 40px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+
+  position: relative;
+  overflow: hidden;
+  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1rem, 4vw, 3rem);
+}
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left,
+    rgba(249, 235, 235, 0.779),
+    transparent 100%);
+  pointer-events: none;
 }
 
 /* mandala layer */
@@ -40,7 +60,7 @@
   font-size: clamp(2.2rem, 3.2vw + 1rem, 3rem);
   font-weight: 800;
   letter-spacing: 0.02em;
-  color: #b10a4a;
+  color:#111827;
   margin-bottom: 1rem;
 }
 
@@ -63,7 +83,7 @@
   position: relative;
   padding-left: 1.4rem;
   font-size: 0.95rem;
-  color: #4b5563;
+  color: #000000;
 }
 
 .bullets li::before {

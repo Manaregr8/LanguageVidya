@@ -5,7 +5,16 @@ import styles from "./ContactPage.module.css";
 export default function ContactPage() {
   return (
     <main className={styles.page}>
+      {/* HERO */}
       <section className={styles.hero}>
+        {/* mandala image in JSX */}
+        <img
+          src="/uploads/mandalafull.png"
+          alt=""
+          className={styles.heroMandala}
+          aria-hidden="true"
+        />
+
         <div className={styles.heroInner}>
           <h1 className={styles.heading}>Contact us</h1>
           <p className={styles.subheading}>
@@ -16,9 +25,10 @@ export default function ContactPage() {
         </div>
       </section>
 
+      {/* CONTENT SECTION */}
       <section className={styles.section}>
         <div className={styles.grid}>
-          {/* contact info */}
+          {/* LEFT: info + map (single card) */}
           <div className={styles.infoCard}>
             <h2 className={styles.title}>Talk to our team</h2>
             <p className={styles.text}>
@@ -31,20 +41,53 @@ export default function ContactPage() {
                 <h3 className={styles.infoLabel}>Email</h3>
                 <p className={styles.infoValue}>support@languagevidya.com</p>
               </div>
+
               <div>
                 <h3 className={styles.infoLabel}>WhatsApp</h3>
                 <p className={styles.infoValue}>+91-98765-00000</p>
               </div>
+
               <div>
                 <h3 className={styles.infoLabel}>Timings</h3>
                 <p className={styles.infoValue}>
                   Monday – Saturday, 10:00 AM to 7:00 PM (IST)
                 </p>
               </div>
+
+              <div>
+                <h3 className={styles.infoLabel}>Our Location</h3>
+                <p className={styles.infoValue}>
+                  2nd Floor, Spacetime Management Pvt Ltd Design House,
+                  <br />
+                  Greater Kailash II, New Delhi – 110048
+                </p>
+              </div>
+
+              <div>
+                <h3 className={styles.infoLabel}>Google Maps</h3>
+                <a
+                  href="https://maps.app.goo.gl/g7Rwz2vJiBnp95fF6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.mapLink}
+                >
+                  Open in Google Maps
+                </a>
+              </div>
+
+              <div className={styles.mapFrameWrap}>
+                <iframe
+                  title="Language Vidya Location"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.3446!2d77.234!3d28.55!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x0!2sSpacetime%20Management!5e0!3m2!1sen!2sin!4v1700000000000"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className={styles.mapFrame}
+                />
+              </div>
             </div>
           </div>
 
-          {/* contact form */}
+          {/* RIGHT: form */}
           <form className={styles.form}>
             <h2 className={styles.title}>Send us a message</h2>
 

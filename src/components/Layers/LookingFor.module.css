@@ -18,10 +18,34 @@
 }
 
 /* Section - palette-matched gradient */
-.section {
-   padding: clamp(9rem, 5vw, 3rem) 1.5rem clamp(2.75rem, 4vw, 3.5rem);
-  /* background: linear-gradient(135deg, var(--accent-page), var(--bg-hero)); */
+.section {  margin-top: 20px;
+  margin-bottom: 20px;
+
+  /* Glassmorphism background (semi‑transparent so mandala shows & blurs) */
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+
+  /* Glass border + inner shine */
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  box-shadow:
+    0 14px 40px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+
+  position: relative;
+  overflow: hidden;
+  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1rem, 4vw, 3rem);
 } 
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left,
+    rgba(255, 255, 255, 0.45),
+    transparent 100%);
+  pointer-events: none;
+}
 
 /* Container */
 .inner {
@@ -33,7 +57,7 @@
 .heading {
   font-size: clamp(1.7rem, 2.4vw, 2.2rem);
   font-weight: 800;
-  color: var(--brand-blue);
+  color: #111827;
   text-align: center;
   margin-bottom: clamp(1.5rem, 3vw, 1.75rem);
 }
@@ -51,12 +75,12 @@
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  padding: 0.55rem 1.6rem 0.55rem 0.9rem;
+  padding: 0.85rem 2rem 0.85rem 1.2rem;
   border-radius: 999px;
   border: none;
   cursor: pointer;
-  font-size: clamp(0.875rem, 2vw, 0.95rem);
-  font-weight: 700;
+  font-size: clamp(0.975rem, 2vw,1rem);
+  font-weight: 900;
   white-space: nowrap;
   
   /* Palette-optimized gradients */
@@ -121,7 +145,7 @@
 }
 
 /* PERFECT RESPONSIVE - Minimal media queries */
-@media (max-width: 640px) {
+ @media (max-width: 640px) {
   .chipsRow {
     gap: 0.625rem;
     justify-content: stretch;
@@ -132,7 +156,7 @@
     min-width: 200px;
     justify-content: flex-start;
   }
-}
+} 
 .section {
   position: relative;  /* NEW: for mandala positioning */
   overflow: hidden;    /* NEW: contain mandala */

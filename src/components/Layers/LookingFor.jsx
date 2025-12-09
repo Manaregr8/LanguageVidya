@@ -8,6 +8,7 @@ const options = [
   { label: "Fluent Speaking", icon: "/uploads/icons/briefcaseO.png" },
   { label: "Talking with Client", icon: "/uploads/icons/Man-o.png" },
   { label: "Shine in Interview", icon: "/uploads/icons/power-hitO.png" },
+  { label: "Accent Building", icon: "/uploads/icons/power-hitO.png" },
 ];
 
 export default function LookingFor() {
