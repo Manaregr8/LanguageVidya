@@ -76,13 +76,7 @@ export default function ContactPage() {
               </div>
 
               <div className={styles.mapFrameWrap}>
-                <iframe
-                  title="Language Vidya Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3503.3446!2d77.234!3d28.55!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x0!2sSpacetime%20Management!5e0!3m2!1sen!2sin!4v1700000000000"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className={styles.mapFrame}
-                />
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3385.560206759662!2d77.23930384287287!3d28.542479709101958!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce1b8032e0e7f%3A0x8d8484c29620d0c0!2sDizitalAdda%20Digital%20Marketing%20Institute!5e0!3m2!1sen!2sus!4v1765884712310!5m2!1sen!2sus" width="600" height="450" style={{ border: "0" }} allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
               </div>
             </div>
           </div>

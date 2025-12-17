@@ -1,6 +1,7 @@
 
-// "use client";
- 
+"use client";
+
+import { useState, useEffect } from "react";
 import HeroSection from "@/components/Layers/HeroSection";
 import styles from './page.module.css'
 import Image from "next/image";
@@ -12,6 +13,9 @@ import ReviewsSection from "@/components/Layers/ReviewsSection";
 import PracticeHero from "@/components/Layers/PracticeHero";
 import MotivationSection from "@/components/Layers/MotivationSection";
 import TimelineSection from "@/components/Layers/TimelineSection";
+import FestiveOffers from "@/components/Layers/FestiveOffer";
+import StatsSection from "@/components/Layers/StatsSection";
+import PopupForm from "@/components/Layers/PopupForm";
 
 const mandalaPositions = [
   { className: styles.heroMandala, pos: "top", },
@@ -28,9 +32,25 @@ const mandalaPositions = [
   { className: styles.heroMandala, pos: "bottom11",},
   { className: styles.heroMandala, pos: "bottom12",},
 ];
+
 export default function Home() {
+  const [showPopup, setShowPopup] = useState(false);
+
+  // Auto-open popup after 3 seconds (once per session)
+  useEffect(() => {
+    // Only run on client side
+    if (typeof window === 'undefined') return;
+
+    const timer = setTimeout(() => {
+      setShowPopup(true);
+    }, 3000);
+    
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className={styles.pageContainer}>
+    <>
+      <div className={styles.pageContainer}>
          {mandalaPositions.map(({ className, pos }, index) => (
         <div key={pos} className={className} data-pos={pos}>
           <Image
@@ -45,19 +65,29 @@ export default function Home() {
       ))} 
       
       <HeroSection />
-       <EnglishCourseBenefits />
-      <WhoCanLearn />
-      {/* <OnlineCourses /> */}
+     <StatsSection/>
       <LookingFor />
-      <PracticeHero />
-      <MotivationSection />
-      <TimelineSection />
+     <TimelineSection />
+     
+    <WhoCanLearn />
       <ReviewsSection />
+<EnglishCourseBenefits />
+      <FestiveOffers />
+       
+      {/* <OnlineCourses /> */}
+     
+      <PracticeHero />
+      {/* <MotivationSection /> */}
+      
      
       {/* <TeachersSection/> */}
       
     </div>
-
-
+    
+    <PopupForm 
+      isOpen={showPopup} 
+      onClose={() => setShowPopup(false)} 
+    />
+    </>
   );
 }

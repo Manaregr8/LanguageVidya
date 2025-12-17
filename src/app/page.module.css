@@ -18,11 +18,12 @@ body {
 }
 .pageContainer {
   background: linear-gradient(135deg, #ffd4b0, var(--bg-hero)); 
-
+z-index: 0;
 }
 
 
 .heroMandala {
+  background-color: #ffd4b000;
   backdrop-filter: blur(24px);
   position: absolute;
   inset-inline: 1.5rem;

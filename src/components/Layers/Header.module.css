@@ -12,7 +12,7 @@
 
 /* HEADER WRAPPER */
 .header {
-
+  position: sticky;
   width: 100%;
   top: 0;
   z-index: 50;
@@ -237,16 +237,19 @@
   inset-inline: 0;
   top: 107px;
   /* approximate header height */
-  background: linear-gradient(135deg, var(--accent-page), #ffffff);
-  border-top: 1px solid var(--accent-orange);
-  box-shadow: 0 12px 20px -6px rgba(0, 0, 0, 0.2),
-    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  border-top: 2px solid var(--accent-orange);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12),
+    0 8px 16px rgba(15, 23, 42, 0.08);
   transform: translateY(-16px);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 40;
+  max-height: calc(100vh - 107px);
+  overflow-y: auto;
 }
 
 .mobileMenuOpen {
@@ -259,47 +262,76 @@
 .mobileList {
   list-style: none;
   margin: 0;
-  padding: 0.75rem 1rem 1.25rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
 
 .mobileGroup {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .mobileGroupTitle {
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: var(--brand-blue);
-  padding: 0.5rem 0.75rem;
-  border-radius: 0.5rem;
-  background-color: #e8bed29f;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.3px;
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--brand-main), var(--brand-purple));
+  margin: -1rem -1rem 0.5rem -1rem;
+  text-transform: uppercase;
 }
 
 .mobileLink {
-  display: block;
-  padding: 0.55rem 1.25rem;
-  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 500;
   color: var(--text-main);
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: #f8fafc;
   border: 1px solid transparent;
-  transition: background-color var(--transition-fast),
-    color var(--transition-fast),
-    transform var(--transition-fast),
-    border-color var(--transition-fast);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.mobileLink::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent-orange);
+  margin-right: 0.75rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .mobileLink:hover {
-  background-color: var(--accent-orange);
-  color: #ffffff;
-  border-color: var(--accent-orange);
+  background: linear-gradient(135deg, rgba(166, 36, 85, 0.08), rgba(123, 39, 92, 0.08));
+  color: var(--brand-main);
+  border-color: var(--brand-main);
   transform: translateX(6px);
+  font-weight: 600;
+}
+
+.mobileLink:hover::before {
+  opacity: 1;
+}
+
+.mobileLink:active {
+  transform: translateX(4px);
 }
 
 /* RESPONSIVE BREAKPOINTS */

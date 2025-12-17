@@ -2,7 +2,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals.css";
 import Header from "../components/Layers/Header";
 import Footer from "../components/Layers/Footer";
-
+import FloatingActions from "../components/Layers/FloatingActions";
+import AnnouncementBar from "../components/Layers/AnnouncementBar";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -42,9 +43,11 @@ export default function RootLayout({ children }) {
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
+          <AnnouncementBar />
         <Header />
         <main id="main-content" className="min-h-[60vh]">
           {children}
+            <FloatingActions />
         </main>
         <Footer />
       </body>

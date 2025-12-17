@@ -37,13 +37,17 @@ const NAV_ITEMS = [
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [expandedGroup, setExpandedGroup] = useState(null)
 
   const toggleMenu = () => setIsMenuOpen(prev => !prev)
   const closeMenu = () => setIsMenuOpen(false)
+  const toggleGroup = (groupTitle) => {
+    setExpandedGroup(expandedGroup === groupTitle ? null : groupTitle)
+  }
 
   return (
     <header className={styles.header}>
-      <AnnouncementBar />
+    
 
       <div className={styles.container}>
         <div className={styles.grid}>

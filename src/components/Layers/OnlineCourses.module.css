@@ -14,15 +14,14 @@
 }
 
 /* Section wrapper */
-.section { margin-top: 20px;
+.section {
+  margin-top: 20px;
   margin-bottom: 20px;
 
-  /* Glassmorphism background (semi‑transparent so mandala shows & blurs) */
-    background: #ffe4e4b6;
+  background: rgba(200, 157, 157, 0.276);
   backdrop-filter: blur(28px);
   -webkit-backdrop-filter: blur(28px);
 
-  /* Glass border + inner shine */
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.32);
   box-shadow:
@@ -33,13 +32,15 @@
   overflow: hidden;
   padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1rem, 4vw, 3rem);
 }
+
+/* soft inner haze like hero */
 .section::before {
   content: "";
   position: absolute;
   inset: 0;
   background: radial-gradient(circle at top left,
-    rgba(255, 255, 255, 0.45),
-    transparent 55%);
+    rgba(255, 255, 255, 0.699),
+    transparent 100%);
   pointer-events: none;
 }
 

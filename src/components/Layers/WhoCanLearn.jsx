@@ -5,10 +5,11 @@ import Image from "next/image";
 import styles from "./WhoCanLearn.module.css";
 
 const courses = [
-  "Basic English Course",
-  "Advanced English Course",
+  "Basic Spoken English Course",
+  "Basic to Communicable English",
+  "Kids English Mastery Program",
   "Business English Course",
-  "Spoken English for Students",
+  "Advanced Spoken English Course",
 ];
 
 const learners = [
@@ -73,10 +74,10 @@ export default function WhoCanLearn() {
       <div className={styles.inner}>
         {/* LEFT: You can learn */}
         <div className={styles.leftText}>
-          <h2 className={styles.leftHeading}>You can learn</h2>
+          <h2 className={styles.leftHeading}>You Can Learn.</h2>
 
           <p className={styles.leftSub}>
-            Choose the English course that matches your goals and current level.
+            Choose The English Course That Matches Your Goals And Current Level.
           </p>
 
           <div className={styles.courseGrid}>
@@ -90,7 +91,7 @@ export default function WhoCanLearn() {
 
         {/* RIGHT: Who can learn */}
         <div className={styles.rightBlock}>
-          <h2 className={styles.heading}>Who can learn?</h2>
+          <h2 className={styles.heading}>Who Can Learn?</h2>
 
           {/* Desktop grid */}
           <div className={styles.gridDesktop}>

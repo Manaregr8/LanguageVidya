@@ -39,8 +39,8 @@
 }
 
 .logoMark {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 999px;
   background: linear-gradient(135deg, #ffd4b0, #ffe0ef);
   color: #111827;
@@ -50,6 +50,11 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 10px 25px rgba(166, 36, 85, 0.45);
+}
+.logoMark img {
+  width: 35px;
+  height: 35px;
+  
 }
 
 .brandName {

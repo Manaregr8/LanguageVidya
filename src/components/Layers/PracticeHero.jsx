@@ -29,7 +29,11 @@ export default function PracticeHero() {
 
           <div className={styles.cardBody}>
             <div className={styles.avatarCircle}>
-              {/* place your quiz / bot icon img here */}
+             <img
+      src="/icons/testing.png"
+      alt="AI Avatar"
+      className={styles.avatarImage}
+    />
             </div>
             <p className={styles.status}>Ready when you are</p>
             <button className={styles.ctaButton}>Start Free Test</button>

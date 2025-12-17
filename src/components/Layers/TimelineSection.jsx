@@ -67,31 +67,37 @@ export default function TimelineSection() {
             <div className={styles.trackFill} />
           </div>
 
-          {/* Steps - Icons only */}
+          {/* Steps with icon, tooltip and title at bottom */}
           <div className={styles.steps}>
-              {steps.map((step) => (
-                <div key={step.number} className={styles.step}>
-                  <div className={styles.node}>
-                    <img
-                      src={step.icon}
-                      alt={step.title}
-                      className={styles.icon}
-                    />
-                    <div className={styles.ring} />
-                    <span className={styles.number}>{step.number}</span>
-                    
-                    {/* Hover tooltip */}
-                    <div className={styles.tooltip}>
-                      <h4 className={styles.tooltipTitle}>{step.title}</h4>
-                      <p className={styles.tooltipText}>{step.text}</p>
-                    </div>
+            {steps.map((step) => (
+              <div key={step.number} className={styles.step}>
+                <div className={styles.node}>
+                  <img
+                    src={step.icon}
+                    alt={step.title}
+                    className={styles.icon}
+                  />
+                  <div className={styles.ring} />
+                  <span className={styles.number}>{step.number}</span>
+
+                  {/* Hover tooltip */}
+                  <div className={styles.tooltip}>
+                    <h4 className={styles.tooltipTitle}>{step.title}</h4>
+                    <p className={styles.tooltipText}>{step.text}</p>
                   </div>
                 </div>
-              ))}            <div className={styles.finish}>
+
+                {/* Title shown at bottom of icon */}
+                <span className={styles.stepTitle}>{step.title}</span>
+              </div>
+            ))}
+
+            {/* Finish man with single arrow coming from line */}
+            <div className={styles.finish}>
               <div className={styles.trophyNode}>
                 <img
-                  src="/icons/trophy-svgrepo-com.svg"
-                  alt="Trophy"
+                  src="/icons/man.png"
+                  alt="man"
                   className={styles.trophyIcon}
                 />
                 <div className={styles.trophyGlow} />

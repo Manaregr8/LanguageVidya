@@ -11,9 +11,12 @@ export default function Footer() {
         {/* Brand + short pitch */}
         <div className={styles.brandCol}>
           <div className={styles.logoRow}>
-            <div className={styles.logoMark}>LV</div>
-            <span className={styles.brandName}>Language Vidya</span>
-          </div>
+  <div className={styles.logoMark}>
+    <img src="/uploads/icons/ShotLOGO.png" alt="Language Vidya Logo" />
+  </div>
+  <span className={styles.brandName}>Language Vidya</span>
+</div>
+
           <p className={styles.brandText}>
             Live, friendly English practice designed for Indian learners who
             want clear, confident communication.

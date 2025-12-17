@@ -6,8 +6,7 @@
   --accent-page: #F9E4C0;
   --text-main: #1F2933;
   --bg-hero: #ffe0ef;
-  
-  /* Optimized chip colors using palette */
+
   --chip-rest1: var(--accent-page);
   --chip-rest2: var(--bg-hero);
   --chip-hover1: var(--accent-orange);
@@ -17,52 +16,67 @@
   --chip-shadow-active: rgba(15, 23, 42, 0.4);
 }
 
-/* Section - palette-matched gradient */
-.section {  margin-top: 20px;
-  margin-bottom: 20px;
+/* Section */
+.section {
+  margin: 20px 0;
+  position: relative;
+  overflow: hidden;
 
-  /* Glassmorphism background (semi‑transparent so mandala shows & blurs) */
-    background: #ffe4e4b6;
+  background: rgba(200, 157, 157, 0.276);
   backdrop-filter: blur(28px);
   -webkit-backdrop-filter: blur(28px);
-
-  /* Glass border + inner shine */
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.32);
   box-shadow:
     0 14px 40px rgba(0, 0, 0, 0.16),
     inset 0 1px 0 rgba(255, 255, 255, 0.45);
 
-  position: relative;
-  overflow: hidden;
   padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1rem, 4vw, 3rem);
-} 
+}
+
+/* Soft inner haze */
 .section::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at top left,
-    rgba(255, 255, 255, 0.45),
-    transparent 100%);
+  background: radial-gradient(
+    circle at top left,
+    rgba(255, 255, 255, 0.699),
+    transparent 100%
+  );
   pointer-events: none;
 }
 
-/* Container */
+/* Mandala layer */
+.sectionMandala {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 60%;
+  width: 60%;
+  z-index: 0;
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+/* Content container */
 .inner {
+  position: relative;
+  z-index: 1;
   max-width: 1120px;
   margin: 0 auto;
 }
 
-/* Typography - palette colors */
+/* Typography */
 .heading {
   font-size: clamp(1.7rem, 2.4vw, 2.2rem);
   font-weight: 800;
-  color: #111827;
+  color: #000000;
   text-align: center;
   margin-bottom: clamp(1.5rem, 3vw, 1.75rem);
 }
 
-/* Responsive chips grid */
+/* Chips row */
 .chipsRow {
   display: flex;
   flex-wrap: wrap;
@@ -70,7 +84,7 @@
   justify-content: center;
 }
 
-/* Optimized chip - single declaration */
+/* Chip */
 .chip {
   display: inline-flex;
   align-items: center;
@@ -79,22 +93,17 @@
   border-radius: 999px;
   border: none;
   cursor: pointer;
-  font-size: clamp(0.975rem, 2vw,1rem);
+  font-size: clamp(0.975rem, 2vw, 1rem);
   font-weight: 900;
   white-space: nowrap;
-  
-  /* Palette-optimized gradients */
+
   background: linear-gradient(135deg, var(--chip-rest1), var(--chip-rest2));
   color: var(--text-main);
-  
-  /* Palette-matched shadows */
   box-shadow: 0 10px 22px var(--chip-shadow-rest);
-  
-  /* Single optimized transition */
   transition: all 0.18s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Icon container - cleaner */
+/* Icon circle */
 .iconCircle {
   width: clamp(28px, 3vw, 32px);
   height: clamp(28px, 3vw, 32px);
@@ -120,7 +129,7 @@
   transition: color 0.18s ease;
 }
 
-/* PERFECT HOVER - Palette matched */
+/* Hover / active / focus */
 .chip:hover {
   background: linear-gradient(135deg, var(--chip-hover1), var(--chip-hover2));
   color: #ffffff;
@@ -129,7 +138,7 @@
 }
 
 .chip:hover .iconCircle {
-  background: rgba(255, 255, 255, 1);
+  background: #ffffff;
   transform: scale(1.05);
 }
 
@@ -138,45 +147,24 @@
   box-shadow: 0 8px 16px var(--chip-shadow-active);
 }
 
-/* Focus accessibility */
 .chip:focus-visible {
   outline: 2px solid var(--accent-orange);
   outline-offset: 2px;
 }
 
-/* PERFECT RESPONSIVE - Minimal media queries */
- @media (max-width: 640px) {
+/* Mobile */
+@media (max-width: 640px) {
   .chipsRow {
     gap: 0.625rem;
     justify-content: stretch;
   }
-  
+
   .chip {
     flex: 1;
     min-width: 200px;
     justify-content: flex-start;
   }
-} 
-.section {
-  position: relative;  /* NEW: for mandala positioning */
-  overflow: hidden;    /* NEW: contain mandala */
-  /* existing gradient stays on top */
-}
 
-/* NEW: mandala layer - right-leaning like hero */
-.sectionMandala {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 60%;           /* starts further right than hero */
-  width: 60%;          /* smaller than hero for subtlety */
-  z-index: 0;
-  opacity: 0.22;       /* softer than hero */
-  pointer-events: none;
-}
-
-/* NEW: mobile adjustment */
-@media (max-width: 640px) {
   .sectionMandala {
     left: 35%;
     width: 75%;

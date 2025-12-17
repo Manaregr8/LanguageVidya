@@ -4,12 +4,15 @@ import Image from "next/image";
 import styles from "./MotivationSection.module.css";
 
 const courses = [
-  { code: "B1", name: "English for Beginners" },
-  { code: "ST", name: "English for Students" },
-  { code: "AD", name: "English Advanced" },
-  { code: "SP", name: "English Spoken" },
-  { code: "INT", name: "English for Foreigners" },
+  { code: "1", name: "Basic Spoken English Course" },
+  { code: "2", name: "Basic to Communicable English" },
+  { code: "3", name: "Kids English Mastery Program" },
+  { code: "4", name: "Business English Course" },
+  { code: "5", name: "Advanced Spoken English Courses" },
 ];
+
+
+
 
 export default function MotivationSection() {
   return (

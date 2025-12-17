@@ -2,47 +2,61 @@
 
 import styles from "./HeroSection.module.css";
 
+const courses = [
+  { code: "1", name: "Basic Spoken English Course" },
+  { code: "2", name: "Basic to Communicable English" },
+  { code: "3", name: "Kids English Mastery Program" },
+  { code: "4", name: "Business English Course" },
+  { code: "5", name: "Advanced Spoken English Courses" },
+];
 
 export default function HeroSection() {
   return (
     <section className={styles.hero}>
-     
       <div className={styles.inner}>
         {/* Left: text */}
         <div className={styles.textBlock}>
-  <p className={styles.badge}>Language Vidya</p>
-  <h1 className={styles.heading}>Start Your Confident Communication Journey Today.</h1>
-  <p className={styles.subheading}>
-    Build fluent, natural English through guided practice, real-life conversations, and our AI-powered speaking tutor — designed specially for Indian learners.
-  </p>
-  <div className={styles.actions}>
-    <a href="#sessions" className={styles.primaryButton}>Start Practicing</a>
-    <a href="#languages" className={styles.secondaryLink}>Book a Session →</a>
-  </div>
-  {/* ✅ Improvement 4 */}
-  <p className={styles.trustBadge}>Trusted by 3000+ learners · No sign-up required</p>
-</div>
+          <p className={styles.badge}>Language Vidya</p>
+          <h1 className={styles.heading}>Start Your Confident Communication Journey Today.</h1>
+          <p className={styles.subheading}>
+            Build fluent, natural English through guided practice, real-life conversations, and our AI-powered speaking tutor — designed specially for Indian learners.
+          </p>
+          <div className={styles.actions}>
+            <a href="#sessions" className={styles.primaryButton}>Start Practicing</a>
+            <a href="#languages" className={styles.secondaryLink}>Book a Session →</a>
+          </div>
+          <p className={styles.trustBadge}>Trusted by 3000+ learners · No sign-up required</p>
+        </div>
 
+        {/* Right: courses section */}
+        <div className={styles.rightSection}>
+          {/* mandala background layer */}
+          <div className={styles.courseSection}>
+            {/* Courses list */}
+            <div className={styles.leftText}>
+              <h2 className={styles.leftHeading}>Learn skills that move your career forward with us.</h2>
 
-        {/* Right: hero visual */}
-        <div className={styles.card}>
-          <div className={styles.cardHeader}>Improve Speaking</div>
+              <p className={styles.leftSub}>
+                {/* Choose The English Course That Matches Your Goals And Current Level. */}
+              </p>
 
-          <div className={styles.cardBody}>
-            <div className={styles.avatarCircle}>
-              {/* place your quiz / bot icon img here */}
+             <div className={styles.right}>
+          {courses.map((course) => (
+            <button
+              key={course.code}
+              className={styles.langPill}
+              type="button"
+            >
+              <span className={styles.flagCircle}>{course.code}</span>
+              <span className={styles.langName}>{course.name}</span>
+            </button>
+          ))}
+        </div>
             </div>
-            <p className={styles.status}>Ready when you are.</p>
-            <button className={styles.ctaButton}>Start Practicing</button>
-            <p className={styles.cardNote}>
-             AI Avatar: Friendly Practicing : Always available
-            </p>
           </div>
         </div>
       </div>
-
-      {/* Child components */}
-     
     </section>
   );
 }
+

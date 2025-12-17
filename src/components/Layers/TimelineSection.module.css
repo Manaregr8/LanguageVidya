@@ -3,33 +3,29 @@
    ======================================== */
 
 .section {
-  margin-top: 20px;
-  margin-bottom: 20px;
-
-  /* Glassmorphism background */
-  background: #ffe4e4b6;
+  background: rgba(200, 157, 157, 0.276);
   backdrop-filter: blur(28px);
   -webkit-backdrop-filter: blur(28px);
-
-  /* Glass border + inner shine */
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.32);
   box-shadow:
     0 14px 40px rgba(0, 0, 0, 0.16),
     inset 0 1px 0 rgba(255, 255, 255, 0.45);
-
   position: relative;
   overflow: visible;
   padding: clamp(3rem, 6vw, 4rem) clamp(1.5rem, 4vw, 3rem);
 }
 
+/* soft inner haze */
 .section::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at top left,
-    rgba(255, 255, 255, 0.45),
-    transparent 55%);
+  background: radial-gradient(
+    circle at top left,
+    rgba(255, 255, 255, 0.699),
+    transparent 100%
+  );
   pointer-events: none;
 }
 
@@ -44,7 +40,11 @@
 .badge {
   display: inline-block;
   padding: 0.5rem 1.25rem;
-  background: linear-gradient(135deg, rgba(166, 36, 85, 0.08), rgba(123, 39, 92, 0.08));
+  background: linear-gradient(
+    135deg,
+    rgba(166, 36, 85, 0.08),
+    rgba(123, 39, 92, 0.08)
+  );
   border: 1px solid rgba(166, 36, 85, 0.15);
   border-radius: 50px;
   font-size: 0.8rem;
@@ -92,15 +92,16 @@
 /* Horizontal track */
 .track {
   position: absolute;
-  left: 0;
-  right: 0;
+  left: 50px;
+  right: 150px; /* leave space for arrow + man */
   top: 40px;
   height: 3px;
   background: rgba(166, 36, 85, 0.1);
   border-radius: 10px;
-  overflow: hidden;
+  overflow: visible;
 }
 
+/* Filled gradient bar + arrow at end */
 .trackFill {
   position: absolute;
   inset: 0;
@@ -111,16 +112,21 @@
     #e879a9 60%,
     #f97316 100%
   );
-  animation: shimmer 3s ease-in-out infinite;
 }
 
-@keyframes shimmer {
-  0%, 100% {
-    opacity: 0.6;
-  }
-  50% {
-    opacity: 1;
-  }
+/* arrow at the end of the filled track */
+.trackFill::after {
+  content: "";
+  position: absolute;
+  right: -14px;              /* pushes arrow outside bar edge */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 28px solid transparent;
+  border-bottom: 28px solid transparent;
+  border-left: 34px solid #f97316; /* same as end color of gradient */
+  filter: drop-shadow(0 2px 4px rgba(166, 36, 85, 0.4));
 }
 
 /* Steps container */
@@ -140,7 +146,7 @@
   align-items: center;
 }
 
-/* Node (icon + number circle) */
+/* Node (icon + number) */
 .node {
   position: relative;
   width: 70px;
@@ -156,7 +162,8 @@
   height: 60%;
   position: relative;
   z-index: 3;
-  filter: drop-shadow(0 2px 4px rgba(166, 36, 85, 0.1)) brightness(0) invert(1);
+  filter: drop-shadow(0 2px 4px rgba(166, 36, 85, 0.1))
+    brightness(0) invert(1);
   transition: transform 0.3s ease;
   object-fit: contain;
 }
@@ -203,7 +210,7 @@
   z-index: 4;
 }
 
-/* Tooltip on hover */
+/* Tooltip */
 .tooltip {
   position: absolute;
   bottom: 100%;
@@ -241,6 +248,16 @@
   line-height: 1.4;
 }
 
+/* Title under icon */
+.stepTitle {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #334155;
+  text-align: center;
+  max-width: 90px;
+}
+
 /* Trophy finish */
 .finish {
   flex: 1;
@@ -251,29 +268,22 @@
 
 .trophyNode {
   position: relative;
-  width: 80px;
-  height: 80px;
+  top: -55px;
+  width: 170px;
+  height: 170px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 0;
 }
 
-
-.trophyEmoji {
-  font-size: 2.8rem;
+.trophyIcon {
+  width: 280%;
+  height: 280%;
   position: relative;
   z-index: 3;
-  animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-10px) rotate(5deg);
-  }
+  filter: drop-shadow(0 2px 4px rgba(166, 36, 85, 0.1));
+  object-fit: contain;
 }
 
 .trophyGlow {
@@ -286,80 +296,11 @@
     rgba(251, 146, 60, 0.08) 50%,
     transparent 70%
   );
-  animation: pulse 2s ease-in-out infinite;
 }
 
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.7;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 1;
-  }
-}
-
-.finishLabel {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.25rem;
-}
-
-.finishLabel span {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: #f97316;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.finishLabel small {
-  font-size: 0.75rem;
-  color: #94a3b8;
-}
-
-/* Right side - Illustration */
+/* Right side - Illustration (unused currently) */
 .illustrationSection {
   display: none;
-}
-
-.characterCard {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.1);
-  text-align: center;
-  border: 1px solid rgba(166, 36, 85, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.characterCard:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 48px rgba(166, 36, 85, 0.15);
-}
-
-.character {
-  width: 100%;
-  max-width: 200px;
-  height: auto;
-  margin-bottom: 1.5rem;
-  filter: drop-shadow(0 8px 16px rgba(166, 36, 85, 0.15));
-}
-
-.characterInfo h3 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #a62455;
-  margin: 0 0 0.5rem;
-}
-
-.characterInfo p {
-  font-size: 0.9rem;
-  color: #64748b;
-  margin: 0;
-  line-height: 1.6;
 }
 
 /* ========================================
@@ -375,24 +316,20 @@
     height: 60px;
   }
 
-  .icon {
-    font-size: 1.5rem;
+  .stepTitle {
+    font-size: 0.85rem;
   }
 
   .trophyNode {
-    width: 70px;
-    height: 70px;
-  }
-
-  .trophyEmoji {
-    font-size: 2.2rem;
+    width: 130px;
+    height: 130px;
   }
 }
 
 /* ========================================
-   RESPONSIVE - MOBILE
+   RESPONSIVE - MOBILE (PORTRAIT)
    ======================================== */
-@media (max-width: 768px) {
+@media (max-width: 768px) and (orientation: portrait) {
   .section {
     padding: clamp(2rem, 4vw, 2.5rem) clamp(1rem, 3vw, 1.5rem);
   }
@@ -407,7 +344,7 @@
 
   .steps {
     flex-direction: row;
-    gap: 0.5rem;
+    gap: 0.75rem;
     overflow-x: auto;
     padding: 1rem 0;
     -webkit-overflow-scrolling: touch;
@@ -422,10 +359,6 @@
     height: 55px;
   }
 
-  .icon {
-    font-size: 1.3rem;
-  }
-
   .number {
     width: 22px;
     height: 22px;
@@ -438,13 +371,66 @@
     max-width: 150px;
   }
 
-  .trophyNode {
-    width: 65px;
-    height: 65px;
+  .stepTitle {
+    font-size: 0.75rem;
+    max-width: 80px;
   }
 
-  .trophyEmoji {
-    font-size: 2rem;
+  .trophyNode {
+    width: 90px;
+    height: 90px;
+    top: -35px;
+  }
+}
+
+/* ========================================
+   MOBILE LANDSCAPE (HORIZONTAL LAYOUT)
+   ======================================== */
+@media (max-width: 768px) and (orientation: landscape) {
+  .section {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .heading {
+    font-size: 1.25rem;
+  }
+
+  .subheading {
+    font-size: 0.8rem;
+    max-width: 320px;
+  }
+
+  .track {
+    display: block;
+    left: 30px;
+    right: 140px;
+    top: 35px;
+  }
+
+  .steps {
+    gap: 0.5rem;
+    padding-top: 2.5rem;
+  }
+
+  .node {
+    width: 50px;
+    height: 50px;
+  }
+
+  .stepTitle {
+    font-size: 0.7rem;
+    max-width: 70px;
+  }
+
+  .tooltip {
+    white-space: normal;
+    max-width: 140px;
+  }
+
+  .trophyNode {
+    width: 80px;
+    height: 80px;
+    top: -35px;
   }
 }
 
@@ -465,52 +451,33 @@
     height: 50px;
   }
 
-  .icon {
-    font-size: 1.2rem;
-  }
-
   .trophyNode {
-    width: 60px;
-    height: 60px;
-  }
-
-  .trophyEmoji {
-    font-size: 1.8rem;
+    width: 70px;
+    height: 70px;
   }
 }
 
 /* ========================================
-   SMALL MOBILE
+   EXTRA SMALL MOBILE
    ======================================== */
 @media (max-width: 400px) {
   .heading {
-    font-size: 1.75rem;
+    font-size: 1.1rem;
   }
 
   .node {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
   }
 
   .icon {
-    font-size: 1.2rem;
+    width: 55%;
+    height: 55%;
   }
 
   .number {
     width: 20px;
     height: 20px;
     font-size: 0.6rem;
-  }
-
-  .card {
-    padding: 0.85rem 1rem;
-  }
-
-  .cardTitle {
-    font-size: 0.9rem;
-  }
-
-  .cardText {
-    font-size: 0.8rem;
   }
 }
