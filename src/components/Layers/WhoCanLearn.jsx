@@ -9,7 +9,7 @@ const courses = [
   "Basic to Communicable English",
   "Kids English Mastery Program",
   "Business English Course",
-  "Advanced Spoken English Course",
+  "Accented English Course",
 ];
 
 const learners = [

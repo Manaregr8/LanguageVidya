@@ -187,6 +187,8 @@
 
   .card {
     justify-self: center;
+    width: 100%;
+    max-width: 420px;
   }
 
   .sectionMandala {
@@ -199,6 +201,10 @@
 @media (max-width: 640px) {
   .section {
     padding: 3rem 1.25rem 3.5rem;
+  }
+
+  .ctaButton {
+    width: 100%;
   }
 
   .heading {

@@ -65,6 +65,52 @@
   letter-spacing: -0.02em;
 }
 
+.ctaRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  align-items: center;
+  margin-bottom: clamp(1.25rem, 3vw, 2rem);
+  width: 100%;
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.primaryCta {
+  padding: 0.85rem 2.6rem;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, var(--brand-blue), var(--brand-purple));
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+@media (max-width: 720px) {
+  .primaryCta {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .ctaNote {
+    text-align: center;
+  }
+}
+
+.primaryCta:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.ctaNote {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
 /* SLIDER WRAPPER + FADES */
 .sliderArea {
   position: relative;

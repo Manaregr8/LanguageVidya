@@ -60,6 +60,7 @@ export default function TimelineSection() {
         </p>
       </div>
 
+     
       <div className={styles.timelineSection}>
         <div className={styles.timeline}>
           {/* Progress track */}
@@ -104,8 +105,17 @@ export default function TimelineSection() {
               </div>
             </div>
           </div>
-        </div>
+        </div>\
+        
+      <div className={styles.ctaRow}>
+        <button type="button" className={styles.primaryCta}>
+          See How We Take You From Beginner to Job-Ready
+        </button>
+        <p className={styles.ctaNote}>Structured. Simple. Effective.</p>
       </div>
+       
+      </div>
+
     </section>
   );
 }

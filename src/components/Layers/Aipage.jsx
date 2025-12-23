@@ -11,10 +11,12 @@ export default function HeroSection() {
       <div className={styles.inner}>
         {/* Left: text */}
         <div className={styles.textBlock}>
-  <p className={styles.badge}>Language Vidya</p>
-  <h1 className={styles.heading}>Start Your Confident Communication Journey Today.</h1>
+  <p className={styles.badge}>Improve Speaking</p>
+  <h1 className={styles.heading}>Your Personal AI Speaking Partner</h1>
   <p className={styles.subheading}>
-    Build fluent, natural English through guided practice, real-life conversations, and our AI-powered speaking tutor — designed specially for Indian learners.
+    
+Start practising English the smart way.
+Talk in real time with our AI-powered speaking avatar and build fluent, natural English through guided conversations, instant responses, and judgement-free practice — anytime you want
   </p>
   <div className={styles.actions}>
     <a href="#sessions" className={styles.primaryButton}>Start Practicing</a>
@@ -43,7 +45,7 @@ export default function HeroSection() {
             <p className={styles.status}>Ready when you are.</p>
             <button type="button" className={styles.ctaButton}>Start Practicing</button>
             <p className={styles.cardNote}>
-             AI Avatar: Friendly Practicing : Always available
+                 No judgement · No pressure · Learn at your own pace
             </p>
           </div>
         </div>
