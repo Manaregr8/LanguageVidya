@@ -72,6 +72,13 @@ export default function ReviewsSection() {
           Hear it from Language Vidya learners
         </h2>
 
+        <div className={styles.ctaRow}>
+          <button type="button" className={styles.primaryCta}>
+            Watch How Careers Actually Changed
+          </button>
+          <p className={styles.ctaNote}>Your story could be next.</p>
+        </div>
+
         <div className={styles.sliderArea}>
           <div
             className={styles.grid}

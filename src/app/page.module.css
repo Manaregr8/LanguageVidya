@@ -97,30 +97,36 @@
 .heroMandala[data-pos="bottom7"] {
   opacity: 0.35;
     top: 322rem;
+      transform: translateX(-30%);
   }
 
   .heroMandala[data-pos="bottom8"] {
     opacity: 0.35;
     top: 372.75rem;
+     transform: translateX(70%);
   }
 
   .heroMandala[data-pos="bottom9"] {
     opacity: 0.35;
     top: 422.75rem;
+      transform: translateX(-30%);
   }
 
   .heroMandala[data-pos="bottom10"] {
     opacity: 0.35;
     top: 472.75rem;
+     transform: translateX(70%);
   }
 
   .heroMandala[data-pos="bottom11"] {
     opacity: 0.35;
     top: 522.75rem;
+      transform: translateX(-30%);
   }
   .heroMandala[data-pos="bottom12"] {
     opacity: 0.35;
     top: 572.75rem;
+     transform: translateX(70%);
   }
 
 

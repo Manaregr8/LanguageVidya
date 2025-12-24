@@ -79,6 +79,13 @@ export default function StatsSection() {
           </p>
         </div>
 
+        <div className={styles.ctaRow}>
+          <button type="button" className={styles.primaryCta}>
+            Why 25,000+ Learners Chose Us
+          </button>
+          <p className={styles.ctaNote}>These aren't ads, these are results.</p>
+        </div>
+
         <div className={styles.statsGrid}>
           {stats.map((stat, index) => (
             <div key={stat.label} className={styles.statCard}>

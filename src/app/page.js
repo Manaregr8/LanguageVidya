@@ -8,20 +8,22 @@ import Image from "next/image";
 import Aipage from "@/components/Layers/Aipage";
 import EnglishCourseBenefits from "@/components/Layers/EnglishCourseBenefits";
 import WhoCanLearn from "@/components/Layers/WhoCanLearn";
-import OnlineCourses from "@/components/Layers/OnlineCourses";
 import LookingFor from "@/components/Layers/LookingFor"; 
 import ReviewsSection from "@/components/Layers/ReviewsSection";
 import PracticeHero from "@/components/Layers/PracticeHero";
-import MotivationSection from "@/components/Layers/MotivationSection";
 import TimelineSection from "@/components/Layers/TimelineSection";
 import FestiveOffers from "@/components/Layers/FestiveOffer";
 import StatsSection from "@/components/Layers/StatsSection";
 import PopupForm from "@/components/Layers/PopupForm";
+import FaqSection from "@/components/Layers/FaqSection";
+import PlacementCta from "@/components/Layers/PlacementCta";
+import FinalCta from "@/components/Layers/FinalCta";
+
 
 
 const mandalaPositions = [
   { className: styles.heroMandala, pos: "top", },
-  { className: styles.heroMandala, pos: "bottom1",},
+  { className: styles.heroMandala, pos: "bottom1",},  
   { className: styles.heroMandala, pos: "bottom2",},
   { className: styles.heroMandala, pos: "bottom3",},
   { className: styles.heroMandala, pos: "bottom4",},
@@ -34,7 +36,7 @@ const mandalaPositions = [
   { className: styles.heroMandala, pos: "bottom11",},
   { className: styles.heroMandala, pos: "bottom12",},
 ];
-
+  
 export default function Home() {
   const [showPopup, setShowPopup] = useState(false);
 
@@ -43,8 +45,12 @@ export default function Home() {
     // Only run on client side
     if (typeof window === 'undefined') return;
 
+    // Skip if we've already shown the popup this session
+    if (sessionStorage.getItem("popupShown")) return;
+
     const timer = setTimeout(() => {
       setShowPopup(true);
+      sessionStorage.setItem("popupShown", "true");
     }, 3000);
     
     return () => clearTimeout(timer);
@@ -71,15 +77,19 @@ export default function Home() {
         <StatsSection />
         <LookingFor />
         <TimelineSection />
+        {/* <PlacementCta /> */}
         <WhoCanLearn />
         <ReviewsSection />
         <EnglishCourseBenefits />
         <FestiveOffers />
         <Aipage />
+         <FinalCta />
         {/* <OnlineCourses /> */}
         <PracticeHero />
         {/* <MotivationSection /> */}
         {/* <TeachersSection/> */}
+        <FaqSection />
+       
       </div>
     </div>
 
