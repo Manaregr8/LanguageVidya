@@ -39,12 +39,12 @@ export default function ContactPage() {
             <div className={styles.infoList}>
               <div>
                 <h3 className={styles.infoLabel}>Email</h3>
-                <p className={styles.infoValue}>support@languagevidya.com</p>
+                <p className={styles.infoValue}>Manshi@languagevidya.com</p>
               </div>
 
               <div>
                 <h3 className={styles.infoLabel}>WhatsApp</h3>
-                <p className={styles.infoValue}>+91-98765-00000</p>
+                <p className={styles.infoValue}>+91-921723971</p>
               </div>
 
               <div>
