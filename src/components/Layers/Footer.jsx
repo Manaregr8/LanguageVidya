@@ -24,6 +24,14 @@ export default function Footer() {
             Live, friendly English practice designed for Indian learners who
             want clear, confident communication.
           </p>
+          <number>
+            +91-921723971
+          </number>
+          <br />
+          <email>Manshi@languagevidya.com</email>
+
+
+
         </div>
 
         {/* Product links */}
