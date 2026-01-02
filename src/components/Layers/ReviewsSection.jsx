@@ -1,5 +1,6 @@
 "use client";
 
+import { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./ReviewsSection.module.css";
 
 const REVIEWS = [
@@ -30,6 +31,34 @@ const REVIEWS = [
     text: "Evening batches helped me manage college and English practice together.",
     rating: 5,
     timeAgo: "1 month ago",
+  },
+  {
+    name: "Ishaan Kapoor",
+    title: "Interview ready",
+    text: "Mock interviews plus speaking drills made my tech interviews smoother.",
+    rating: 5,
+    timeAgo: "2 months ago",
+  },
+  {
+    name: "Priya Nair",
+    title: "Great community",
+    text: "Small groups and peer feedback keep me motivated to show up daily.",
+    rating: 5,
+    timeAgo: "2 months ago",
+  },
+  {
+    name: "Kabir Mehta",
+    title: "Clear structure",
+    text: "The lesson flow from basics to live practice is easy to follow and repeat.",
+    rating: 4,
+    timeAgo: "3 months ago",
+  },
+  {
+    name: "Ananya Rao",
+    title: "Pronunciation improved",
+    text: "Daily corrections on pronunciation and tone boosted my confidence at work.",
+    rating: 5,
+    timeAgo: "3 months ago",
   },
 ];
 
@@ -63,7 +92,57 @@ function Stars({ rating }) {
 }
 
 export default function ReviewsSection() {
-  const scrollingReviews = [...REVIEWS, ...REVIEWS];
+  const sliderRef = useRef(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const updateScrollState = useCallback(() => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+    const { scrollLeft, scrollWidth, clientWidth } = slider;
+    setCanScrollLeft(scrollLeft > 4);
+    setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 4);
+  }, []);
+
+  const scrollByCards = useCallback(
+    (direction) => {
+      if (typeof window === "undefined") return;
+      const slider = sliderRef.current;
+      if (!slider) return;
+
+      const firstCard = slider.querySelector("[data-card]");
+      if (!firstCard) return;
+
+      const computed = window.getComputedStyle(slider);
+      const gapValue = computed.columnGap || computed.gap || "24px";
+      const gap = parseFloat(gapValue) || 24;
+      const cardWidth = firstCard.offsetWidth || 280;
+
+      slider.scrollBy({ left: direction * (cardWidth + gap), behavior: "smooth" });
+      requestAnimationFrame(updateScrollState);
+    },
+    [updateScrollState]
+  );
+
+  const handlePrev = useCallback(() => scrollByCards(-1), [scrollByCards]);
+  const handleNext = useCallback(() => scrollByCards(1), [scrollByCards]);
+
+  useEffect(() => {
+    updateScrollState();
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    const onScroll = () => updateScrollState();
+    const onResize = () => updateScrollState();
+
+    slider.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
+
+    return () => {
+      slider.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+    };
+  }, [updateScrollState]);
 
   return (
     <section className={styles.section} aria-labelledby="reviews-heading">
@@ -89,11 +168,13 @@ export default function ReviewsSection() {
             className={styles.grid}
             role="region"
             aria-label="Reviews carousel"
+            ref={sliderRef}
           >
-            {scrollingReviews.map((review, index) => (
+            {REVIEWS.map((review, index) => (
               <article
                 key={`${review.name}-${review.timeAgo}-${index}`}
                 className={styles.card}
+                data-card
               >
                 <div className={styles.cardHeader}>
                   <div
@@ -121,6 +202,27 @@ export default function ReviewsSection() {
               </article>
             ))}
           </div>
+        </div>
+
+        <div className={styles.navRow}>
+          <button
+            type="button"
+            className={`${styles.navButton} ${!canScrollLeft ? styles.navButtonDisabled : ""}`}
+            aria-label="Previous reviews"
+            onClick={handlePrev}
+            disabled={!canScrollLeft}
+          >
+            <span aria-hidden="true">{"<"}</span>
+          </button>
+          <button
+            type="button"
+            className={`${styles.navButton} ${!canScrollRight ? styles.navButtonDisabled : ""}`}
+            aria-label="Next reviews"
+            onClick={handleNext}
+            disabled={!canScrollRight}
+          >
+            <span aria-hidden="true">{">"}</span>
+          </button>
         </div>
 
         <p className={styles.note}>

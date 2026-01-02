@@ -19,7 +19,7 @@ const NAV_ITEMS = [
   {
     title: 'Regional Languages',
     items: [
-      { id: 'regional-hindi-foreigners', label: 'Hindi For Foreigners', href: '/regional/Hindi' },
+      { id: 'regional-hindi-foreigners', label: 'Hindi For Foreigners', href: '/regional/hindi' },
       { id: 'regional-sanskrit', label: 'Sanskrit', href: '/regional/sanskrit' }
     ]
   },
@@ -80,6 +80,11 @@ export default function Header() {
             {/* Desktop nav */}
             <nav className={styles.nav} aria-label="Main navigation">
               <ul className={styles.navList}>
+                <li className={styles.navSingle}>
+                  <Link href="/courses" className={styles.navLink}>
+                    Courses
+                  </Link>
+                </li>
                 {NAV_ITEMS.map((group) => (
                   <li key={group.title} className={styles.navGroup}>
                     <button
@@ -147,6 +152,11 @@ export default function Header() {
         >
           <nav aria-label="Mobile navigation">
             <ul className={styles.mobileList}>
+              <li className={styles.mobileSingle}>
+                <Link href="/courses" className={styles.mobileLink} onClick={closeMenu}>
+                  Courses
+                </Link>
+              </li>
               {NAV_ITEMS.map((group) => (
                 <li key={group.title} className={styles.mobileGroup}>
                   <button

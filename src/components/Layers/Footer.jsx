@@ -25,10 +25,10 @@ export default function Footer() {
             want clear, confident communication.
           </p>
           <number>
-            +91-921723971
+            +91-9217239714
           </number>
           <br />
-          <email>Manshi@languagevidya.com</email>
+          <email>info@languagevidya.com</email>
 
 
 

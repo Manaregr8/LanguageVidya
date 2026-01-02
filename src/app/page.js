@@ -76,14 +76,13 @@ export default function Home() {
         <StatsSection />
         <LookingFor />
         <TimelineSection />
-      
         <WhoCanLearn />
         <ReviewsSection />
         <EnglishCourseBenefits />
         <FestiveOffers />
         <Aipage />
-         <FinalCta />
-          <PracticeHero />
+        <FinalCta />
+        <PracticeHero />
           
         <FaqSection />
        

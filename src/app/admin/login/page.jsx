@@ -16,6 +16,9 @@ export default async function AdminLoginPage() {
 
   return (
     <main id="main-content" className="auth-page" role="main">
+      <span className="auth-mandala auth-mandala--tl" aria-hidden="true" />
+      <span className="auth-mandala auth-mandala--br" aria-hidden="true" />
+      <span className="auth-grid" aria-hidden="true" />
       <div className="auth-card">
         <div className="auth-card__brand">
           <p className="auth-card__eyebrow">Control Center</p>
