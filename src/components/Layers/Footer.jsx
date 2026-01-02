@@ -28,7 +28,7 @@ export default function Footer() {
             +91-9217239714
           </number>
           <br />
-          <email>Manshi@languagevidya.com</email>
+          <email>info@languagevidya.com</email>
 
 
 

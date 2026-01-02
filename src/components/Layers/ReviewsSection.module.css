@@ -117,57 +117,36 @@
   max-width: 100%;
   margin: 0 auto;
   overflow: hidden;
+  margin-bottom: 1rem;
 }
 
-/* left/right fade overlays */
-.sliderArea::before,
-.sliderArea::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 80px; /* fade width */
-  pointer-events: none;
-  z-index: 5;
-}
 
-.sliderArea::before {
-  left: 0;
-  background: linear-gradient(
-    to right,
-      rgba(255, 224, 239, 1),
-    rgba(249, 228, 192, 0)
-  );
-}
-
-.sliderArea::after {
-  right: 0;
-  background: linear-gradient(
-    to left,
-    rgba(255, 224, 239, 1),
-    rgba(255, 224, 239, 0)
-  );
-}
-
-/* TRACK – marquee effect */
+/* TRACK – horizontal scroll */
 .grid {
-  display: flex;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(260px, calc((100% - (2 * var(--card-gap))) / 3));
   gap: var(--card-gap);
   padding: 0 clamp(0.75rem, 2vw, 1.25rem);
-  width: max-content;
-  animation: reviews-marquee 28s linear infinite;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  justify-content: flex-start;
+  width: 100%;
 }
 
-/* pause on hover (desktop) */
-.sliderArea:hover .grid {
-  animation-play-state: paused;
+.grid::-webkit-scrollbar {
+  display: none;
 }
 
 /* CARD */
 .card {
   margin: 8px;
-  flex: 0 0 var(--card-w);
-  min-width: var(--card-w);
+  width: 100%;
+  min-width: clamp(240px, calc((100% - (2 * var(--card-gap))) / 3), 340px);
+  max-width: clamp(240px, calc((100% - (2 * var(--card-gap))) / 3), 360px);
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(16px);
   border-radius: 1rem;
@@ -178,6 +157,7 @@
     transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
     box-shadow 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
     border-color 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  scroll-snap-align: start;
 }
 
 .card:hover {
@@ -273,10 +253,40 @@
   padding: 0 1rem;
 }
 
-/* KEYFRAMES – move track by half its length (content duplicated) */
-@keyframes reviews-marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+/* NAV BUTTONS */
+.navRow {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.navButton {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(166, 36, 85, 0.18);
+  background: linear-gradient(135deg, var(--brand-blue), var(--brand-purple));
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(31, 61, 122, 0.28);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+}
+
+.navButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 36px rgba(123, 39, 92, 0.32);
+}
+
+.navButtonDisabled,
+.navButton:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
 }
 
 /* RESPONSIVE BREAKPOINTS */
@@ -285,9 +295,10 @@
     --card-w: 240px;
     --card-gap: 20px;
   }
+  .grid { grid-auto-columns: minmax(220px, calc((100% - var(--card-gap)) / 2)); }
   .card {
-    min-width: var(--card-w);
-    flex: 0 0 var(--card-w);
+    min-width: minmax(220px, calc((100% - var(--card-gap)) / 2));
+    max-width: calc((100% - var(--card-gap)) / 2);
   }
 }
 
@@ -296,9 +307,10 @@
     --card-w: 220px;
     --card-gap: 16px;
   }
+  .grid { grid-auto-columns: minmax(220px, calc(100% - var(--card-gap))); }
   .card {
-    min-width: var(--card-w);
-    flex: 0 0 var(--card-w);
+    min-width: 220px;
+    max-width: calc(100% - var(--card-gap));
   }
 }
 
@@ -315,8 +327,6 @@
     margin-bottom: 1.5rem;
   }
   .card {
-    min-width: var(--card-w);
-    flex: 0 0 var(--card-w);
     padding: clamp(0.8rem, 3vw, 1rem);
   }
   .footer {
