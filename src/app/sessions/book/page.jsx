@@ -48,29 +48,24 @@ export default function BookSessionPage() {
             </div>
           </div>
         </div>
-        <div className={styles.heroCard}>
-          <p className={styles.cardTag}>What you get</p>
-          <ul className={styles.cardList}>
-            {OUTPUTS.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <div className={styles.cardNote}>Need help choosing? Ask for a 10-minute discovery call.</div>
-        </div>
-      </section>
-
-      <section className={styles.section} aria-labelledby="steps-heading">
-        <div className={styles.sectionHead}>
-          <h2 id="steps-heading">How booking works</h2>
-          <p>We keep it simple—share your goal, pick slots, and start quickly.</p>
-        </div>
-        <div className={styles.moduleGrid}>
-          {STEPS.map((item) => (
-            <article key={item} className={styles.moduleCard}>
-              <h3>{item}</h3>
-              <p className={styles.moduleCopy}>Concierge support over WhatsApp or email to finalize your spot.</p>
-            </article>
-          ))}
+        <div className={styles.heroCards}>
+          <div className={styles.heroCard}>
+            <p className={styles.cardTag}>What you get</p>
+            <ul className={styles.cardList}>
+              {OUTPUTS.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <div className={styles.cardNote}>Need help choosing? Ask for a 10-minute discovery call.</div>
+          </div>
+          <div className={styles.heroCard}>
+            <p className={styles.cardTag}>How booking works</p>
+            <ul className={styles.cardList}>
+              {STEPS.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 

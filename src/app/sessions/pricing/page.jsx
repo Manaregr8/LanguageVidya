@@ -2,21 +2,9 @@ import Link from "next/link";
 import styles from "../../shared/infoPage.module.css";
 
 const PLANS = [
-  {
-    name: "Pod Plan",
-    detail: "6-10 learners · 4-5 live sessions/week",
-    note: "₹3,500 per 4-week cycle · coach scorecards included",
-  },
-  {
-    name: "Intensive 1:1",
-    detail: "Daily 1:1 drills tuned to your goal",
-    note: "₹9,500 per 4-week cycle · flexible rescheduling",
-  },
-  {
-    name: "Presentation Sprint",
-    detail: "2 weeks · focused on one presentation/interview",
-    note: "₹4,500 per sprint · includes slide/voice review",
-  },
+  "Pod Plan — 6-10 learners · 4-5 live sessions/week (₹3,500 per 4-week cycle · coach scorecards included)",
+  "Intensive 1:1 — daily 1:1 drills tuned to your goal (₹9,500 per 4-week cycle · flexible rescheduling)",
+  "Presentation Sprint — 2 weeks focused on one presentation/interview (₹4,500 per sprint · includes slide/voice review)",
 ];
 
 const OUTPUTS = [
@@ -59,30 +47,24 @@ export default function PricingPage() {
             </div>
           </div>
         </div>
-        <div className={styles.heroCard}>
-          <p className={styles.cardTag}>Included</p>
-          <ul className={styles.cardList}>
-            {OUTPUTS.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <div className={styles.cardNote}>Need invoices or company billing? We provide GST invoices.</div>
-        </div>
-      </section>
-
-      <section className={styles.section} aria-labelledby="plans-heading">
-        <div className={styles.sectionHead}>
-          <h2 id="plans-heading">Pick a plan</h2>
-          <p>Choose your cadence; we will align the coach and materials accordingly.</p>
-        </div>
-        <div className={styles.moduleGrid}>
-          {PLANS.map((plan) => (
-            <article key={plan.name} className={styles.moduleCard}>
-              <h3>{plan.name}</h3>
-              <p className={styles.moduleCopy}>{plan.detail}</p>
-              <p className={styles.moduleCopy}><strong>{plan.note}</strong></p>
-            </article>
-          ))}
+        <div className={styles.heroCards}>
+          <div className={styles.heroCard}>
+            <p className={styles.cardTag}>Included</p>
+            <ul className={styles.cardList}>
+              {OUTPUTS.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <div className={styles.cardNote}>Need invoices or company billing? We provide GST invoices.</div>
+          </div>
+          <div className={styles.heroCard}>
+            <p className={styles.cardTag}>Pick a plan</p>
+            <ul className={styles.cardList}>
+              {PLANS.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 

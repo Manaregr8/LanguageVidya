@@ -51,6 +51,7 @@ export default function BasicSpokenEnglishPage() {
             </div>
           </div>
         </div>
+        <div className={styles.heroCards}>
         <div className={styles.heroCard}>
           <p className={styles.cardTag}>What you get</p>
           <ul className={styles.cardList}>
@@ -60,20 +61,14 @@ export default function BasicSpokenEnglishPage() {
           </ul>
           <div className={styles.cardNote}>We place you in a pod and start within 48 hours.</div>
         </div>
-      </section>
-
-      <section className={styles.section} aria-labelledby="modules-heading">
-        <div className={styles.sectionHead}>
-          <h2 id="modules-heading">What you will practice</h2>
-          <p>Live-first drills with bilingual coaches, small groups, and fast feedback you can reuse immediately.</p>
+        <div className={styles.heroCard}>
+          <p className={styles.cardTag}>What you will practice</p>
+          <ul className={styles.cardList}>
+            {MODULES.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
         </div>
-        <div className={styles.moduleGrid}>
-          {MODULES.map((item) => (
-            <article key={item} className={styles.moduleCard}>
-              <h3>{item}</h3>
-              <p className={styles.moduleCopy}>Guided speaking, corrections, and simple role-plays.</p>
-            </article>
-          ))}
         </div>
       </section>
 

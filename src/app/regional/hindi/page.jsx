@@ -50,29 +50,24 @@ export default function HindiFluencyPage() {
             </div>
           </div>
         </div>
-        <div className={styles.heroCard}>
-          <p className={styles.cardTag}>What you get</p>
-          <ul className={styles.cardList}>
-            {OUTPUTS.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <div className={styles.cardNote}>We place you in a pod and start within 48 hours.</div>
-        </div>
-      </section>
-
-      <section className={styles.section} aria-labelledby="modules-heading">
-        <div className={styles.sectionHead}>
-          <h2 id="modules-heading">What you will practice</h2>
-          <p>Live-first practice with bilingual prompts, quick corrections, and reusable scripts.</p>
-        </div>
-        <div className={styles.moduleGrid}>
-          {MODULES.map((item) => (
-            <article key={item} className={styles.moduleCard}>
-              <h3>{item}</h3>
-              <p className={styles.moduleCopy}>Guided speaking, role-plays, and feedback you can apply the same day.</p>
-            </article>
-          ))}
+        <div className={styles.heroCards}>
+          <div className={styles.heroCard}>
+            <p className={styles.cardTag}>What you get</p>
+            <ul className={styles.cardList}>
+              {OUTPUTS.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <div className={styles.cardNote}>We place you in a pod and start within 48 hours.</div>
+          </div>
+          <div className={styles.heroCard}>
+            <p className={styles.cardTag}>What you will practice</p>
+            <ul className={styles.cardList}>
+              {MODULES.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 

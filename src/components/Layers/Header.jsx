@@ -11,9 +11,9 @@ const NAV_ITEMS = [
     items: [
       { id: 'spoken-basic', label: ' Basic Spoken English', href: '/spoken-english/basic' },
       { id: 'spoken-intermediate', label: ' Basic to Communicable ', href: '/spoken-english/intermediate' },
-      { id: 'spoken-advanced-kids', label: 'kids English Mastery Program', href: '/spoken-english/advanced' },
-      { id: 'spoken-business', label: 'Business English', href: '/spoken-engliish/advjanced' },
-      { id: 'spoken-accented', label: 'Accented English', href: '/spoken-engliiish/advankced' }
+      { id: 'spoken-advanced-kids', label: 'kids English Mastery Program', href: '/spoken-english/kids' },
+      { id: 'spoken-business', label: 'Business English', href: '/spoken-english/business' },
+      { id: 'spoken-accented', label: 'Accented English', href: '/spoken-english/accented' }
     ]
   },
   {

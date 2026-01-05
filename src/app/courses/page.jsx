@@ -52,10 +52,10 @@ const NAV_GROUPS = [
     title: "Spoken English",
     links: [
       { label: "Basic Spoken English", href: "/spoken-english/basic" },
-      { label: "Basic to Communicable", href: "/spoken-english/intermediate" },
+      { label: "Basic to Communicate", href: "/spoken-english/intermediate" },
       { label: "Kids English Mastery Program", href: "/spoken-english/advanced" },
       { label: "Business English", href: "/spoken-engliish/advjanced" },
-      { label: "Accented English", href: "/spoken-engliiish/advankced" },
+      { label: "Accent English", href: "/spoken-engliiish/advankced" },
     ],
   },
   {
@@ -89,51 +89,51 @@ const SPOKEN_TRACKS = [
   {
     title: "Basic Spoken English",
     href: "/spoken-english/basic",
-    focus: "Kickstart everyday conversations with grammar refreshers and fluency drills.",
+    focus: "Zero to comfortable speaking with daily-use English, sentence formation, and confidence drills.",
     details: [
       "6 weeks · 45 min live · 5x weekly",
-      "Pronunciation clean-up and common patterns",
-      "Daily speaking drills with quick feedback",
+      "Live practice, guided activities, and AI-powered speaking",
+      "Daily-use sentences, pronunciation basics, fearless speaking",
     ],
   },
   {
-    title: "Basic to Communicable",
+    title: "Basic to Communicate",
     href: "/spoken-english/intermediate",
-    focus: "Move from short replies to confident small talk, meetings, and campus chats.",
+    focus: "From knowing English to fluent, confident conversations without translating in your head.",
     details: [
       "8 weeks · 60 min live · 5x weekly",
-      "Conversation stamina and listening speed",
-      "Role-plays for meetings and campus life",
+      "Role-plays, speaking drills, and AI speaking partner",
+      "Fluent sentence flow and thinking directly in English",
     ],
   },
   {
     title: "Kids English Mastery Program",
     href: "/spoken-english/advanced",
-    focus: "Story-led sessions, speaking games, and gentle corrections for young learners.",
+    focus: "Confidence, clarity, and communication for kids via stories, games, and positive feedback.",
     details: [
       "6 weeks · 40 min live · 4x weekly",
-      "Story-based learning and speaking games",
-      "Parent-friendly progress nudges",
+      "Storytelling, interactive games, pronunciation basics",
+      "Public speaking basics and classroom communication",
     ],
   },
   {
     title: "Business English",
     href: "/spoken-engliish/advjanced",
-    focus: "Role-played meetings, email tone, and presentation practice for the workplace.",
+    focus: "Professional communication for work with meetings, presentations, and polished tone.",
     details: [
       "5 weeks · 60 min live · 4x weekly",
-      "Meetings, presentations, and email tone",
-      "Industry-flavored role-plays and feedback",
+      "Mock meetings, presentations, and office etiquette",
+      "Email and meeting communication with 1-1 feedback",
     ],
   },
   {
-    title: "Accented English",
+    title: "Accent English",
     href: "/spoken-engliiish/advankced",
-    focus: "Accent clarity, pacing, and intonation for global conversations.",
+    focus: "Neutral, clear pronunciation with stress, intonation, and clarity for global contexts.",
     details: [
       "6 weeks · 75 min live · 4x weekly",
-      "Accent clarity, pacing, intonation",
-      "Recorded drills with coach notes",
+      "Audio drills, live correction, AI speech analysis",
+      "Accent neutralization techniques and pacing",
     ],
   },
 ];
@@ -142,21 +142,21 @@ const REGIONAL_TRACKS = [
   {
     title: "Hindi For Foreigners",
     href: "/regional/hindi",
-    focus: "Conversational Hindi with cultural cues, greetings, and daily scenarios.",
+    focus: "Conversational Hindi with cultural cues, greetings, and daily-use scenarios.",
     details: [
       "5 weeks · 50 min live · 4x weekly",
-      "Scripts, greetings, travel and daily needs",
-      "Cultural cues and polite forms",
+      "Greetings, daily conversations, and pronunciation flow",
+      "Cultural expressions and polite forms",
     ],
   },
   {
     title: "Sanskrit",
     href: "/regional/sanskrit",
-    focus: "Foundations of pronunciation, shlokas, and structured grammar basics.",
+    focus: "Foundational Sanskrit with correct pronunciation, shlokas, and structured grammar basics.",
     details: [
       "6 weeks · 45 min live · 3x weekly",
-      "Pronunciation, meter, and simple shlokas",
-      "Grammar basics with guided practice",
+      "Pronunciation, phonetics, and basic shlokas",
+      "Structured grammar foundations with guided practice",
     ],
   },
 ];
@@ -165,41 +165,41 @@ const SESSION_TRACKS = [
   {
     title: "English Master Classes",
     href: "/sessions/book",
-    focus: "Deep-dive workshops on fluency, storytelling, and public speaking.",
+    focus: "Deep-dive workshops for fast fluency, storytelling, and public speaking practice.",
     details: [
-      "Live workshops · weekend batches",
-      "Storytelling, pace, and delivery",
-      "Hands-on practice with peer feedback",
+      "Live expert-led sessions with speaking challenges",
+      "Weekend-friendly batches and activities",
+      "Real-time feedback and confidence building",
     ],
   },
   {
     title: "Corporate Bootcamp",
     href: "/sessions/pricing",
-    focus: "Team-focused speaking labs, presentations, and meeting simulations.",
+    focus: "Team-focused communication labs with meeting simulations and presentations.",
     details: [
-      "Short sprints · 2-3 weeks",
-      "Meeting simulations and decks",
-      "Manager-ready reports and updates",
+      "Short sprints (2-3 weeks) for teams",
+      "Presentation labs and meeting simulations",
+      "Team speaking exercises and client-ready updates",
     ],
   },
   {
     title: "1-1 Session",
     href: "/sessions/contact",
-    focus: "Personalized coaching with tailored drills and immediate feedback.",
+    focus: "Personalized coaching with custom drills, focused feedback, and flexible scheduling.",
     details: [
-      "Flexible slots · custom goals",
-      "Recorded drills with precise notes",
-      "Fast iteration on your scripts",
+      "Flexible slots and custom goals",
+      "One-to-one coaching with immediate correction",
+      "Rapid iteration on your scripts",
     ],
   },
   {
     title: "Institutional Seminars",
     href: "/sessions/contact",
-    focus: "Campus or org-wide seminars with interactive practice blocks.",
+    focus: "Interactive seminars for colleges or organizations to level-up communication at scale.",
     details: [
       "Seminar or bootcamp formats",
-      "Interactive speaking blocks",
-      "Works for colleges or teams",
+      "Engaging speaking activities and group practice",
+      "Confidence-building workshops for cohorts",
     ],
   },
 ];
@@ -208,41 +208,41 @@ const EXAM_TRACKS = [
   {
     title: "IELTS",
     href: "/exams/ielts",
-    focus: "Speaking mock tests, writing templates, and listening speed drills.",
+    focus: "Practical strategies, exam patterns, and performance-based practice for target bands.",
     details: [
-      "Mocks with band-aligned feedback",
-      "Writing templates and speaking drills",
-      "Listening speed and note-taking",
+      "Speaking mocks with examiner-style feedback",
+      "Writing task templates (Task 1 and 2)",
+      "Listening speed, accuracy, and reading time management",
     ],
   },
   {
     title: "TOEFL",
     href: "/exams/toefl",
-    focus: "Integrated tasks, note-taking rhythms, and timed responses.",
+    focus: "Integrated tasks, structured responses, and time-bound accuracy for study abroad goals.",
     details: [
-      "Integrated task simulations",
-      "Timed responses and cadence",
-      "Note-taking rhythms and review",
+      "Integrated speaking and writing tasks",
+      "Note-taking techniques with timed responses",
+      "Academic vocabulary and listening-to-speaking flow",
     ],
   },
   {
     title: "GRE",
     href: "/exams/gre",
-    focus: "AWA structures, argument drills, and concise speaking summaries.",
+    focus: "AWA structures and concise articulation for clearer arguments and summaries.",
     details: [
-      "AWA templates and drills",
-      "Argument breakdown and summaries",
-      "Fluency for concise delivery",
+      "AWA essay structures and templates",
+      "Argument and issue analysis with summaries",
+      "Clear articulation of complex ideas",
     ],
   },
   {
     title: "PTE",
     href: "/exams/pte",
-    focus: "Speaking clarity, retell lectures, and repeat sentence stamina.",
+    focus: "Clarity, fluency, and repetition-based tasks tuned for computer-scored testing.",
     details: [
-      "Speaking clarity and timing",
-      "Retell lectures and repeat sentences",
-      "Automation-friendly scoring cues",
+      "Speaking clarity drills and timing",
+      "Retell lecture practice and repeat sentence stamina",
+      "Pronunciation accuracy for system evaluation",
     ],
   },
 ];
@@ -291,6 +291,9 @@ export default function CoursesPage() {
             </Link>
             <Link href="tel:+919217239714" className={styles.secondaryCta}>
               Call now
+            </Link>
+            <Link href="https://wa.me/919217239714?text=I%20want%20a%20free%20English%20level%20test" className={styles.secondaryCta}>
+              Start your free English level test
             </Link>
           </div>
           <div className={styles.highlightRow}>
@@ -361,7 +364,7 @@ export default function CoursesPage() {
       <section className={styles.trackSection} aria-labelledby="regional-heading">
         <div className={styles.sectionHead}>
           <h2 id="regional-heading">Regional Languages</h2>
-          <p>Learn Hindi or Sanskrit with guided pronunciation, context, and cultural cues.</p>
+          <p>Learn Indian languages with correct pronunciation, cultural context, and real-life usage.</p>
         </div>
         <div className={styles.trackGrid}>
           {REGIONAL_TRACKS.map((track) => (
@@ -389,7 +392,7 @@ export default function CoursesPage() {
       <section className={styles.trackSection} aria-labelledby="sessions-heading">
         <div className={styles.sectionHead}>
           <h2 id="sessions-heading">Session Booking</h2>
-          <p>Pick the live format—masterclass, bootcamp, or 1-1—that fits your schedule.</p>
+          <p>Choose the learning format that fits your schedule, goals, and learning style—from group masterclasses to personalized coaching.</p>
         </div>
         <div className={styles.trackGrid}>
           {SESSION_TRACKS.map((track) => (
@@ -417,7 +420,7 @@ export default function CoursesPage() {
       <section className={styles.trackSection} aria-labelledby="exams-heading">
         <div className={styles.sectionHead}>
           <h2 id="exams-heading">Entrance Exams</h2>
-          <p>Targeted practice for IELTS, TOEFL, GRE, and PTE with mocks and feedback.</p>
+          <p>Targeted preparation with expert guidance, structured practice, and regular feedback—built to improve performance, not just theory.</p>
         </div>
         <div className={styles.trackGrid}>
           {EXAM_TRACKS.map((track) => (
@@ -472,6 +475,9 @@ export default function CoursesPage() {
             </Link>
             <Link href="mailto:hello@languagevidya.com" className={styles.secondaryCta}>
               Email the team
+            </Link>
+            <Link href="https://wa.me/919217239714?text=I%20want%20to%20book%20a%20demo%20session" className={styles.secondaryCta}>
+              Book a free demo session
             </Link>
           </div>
         </div>

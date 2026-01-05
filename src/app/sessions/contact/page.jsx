@@ -2,21 +2,9 @@ import Link from "next/link";
 import styles from "../../shared/infoPage.module.css";
 
 const CHANNELS = [
-  {
-    title: "WhatsApp Concierge",
-    detail: "Schedule changes, quick questions, and booking support.",
-    note: "https://wa.me/919217239714",
-  },
-  {
-    title: "Email Support",
-    detail: "Invoices, certificates, and coach feedback summaries.",
-    note: "hello@languagevidya.com",
-  },
-  {
-    title: "Call Back",
-    detail: "Ask for a 10-minute discovery call with a coach.",
-    note: "+91 92172 39714",
-  },
+  "WhatsApp Concierge — schedule changes, quick questions, and booking support (https://wa.me/919217239714)",
+  "Email Support — invoices, certificates, and coach feedback summaries (hello@languagevidya.com)",
+  "Call Back — ask for a 10-minute discovery call with a coach (+91 92172 39714)",
 ];
 
 const OUTPUTS = [
@@ -59,30 +47,24 @@ export default function SessionsContactPage() {
             </div>
           </div>
         </div>
-        <div className={styles.heroCard}>
-          <p className={styles.cardTag}>What you get</p>
-          <ul className={styles.cardList}>
-            {OUTPUTS.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <div className={styles.cardNote}>We aim to respond the same day during working hours.</div>
-        </div>
-      </section>
-
-      <section className={styles.section} aria-labelledby="channels-heading">
-        <div className={styles.sectionHead}>
-          <h2 id="channels-heading">Choose a channel</h2>
-          <p>Pick the fastest route based on your request.</p>
-        </div>
-        <div className={styles.moduleGrid}>
-          {CHANNELS.map((channel) => (
-            <article key={channel.title} className={styles.moduleCard}>
-              <h3>{channel.title}</h3>
-              <p className={styles.moduleCopy}>{channel.detail}</p>
-              <p className={styles.moduleCopy}><strong>{channel.note}</strong></p>
-            </article>
-          ))}
+        <div className={styles.heroCards}>
+          <div className={styles.heroCard}>
+            <p className={styles.cardTag}>What you get</p>
+            <ul className={styles.cardList}>
+              {OUTPUTS.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <div className={styles.cardNote}>We aim to respond the same day during working hours.</div>
+          </div>
+          <div className={styles.heroCard}>
+            <p className={styles.cardTag}>How to reach us</p>
+            <ul className={styles.cardList}>
+              {CHANNELS.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 

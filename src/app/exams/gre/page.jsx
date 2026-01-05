@@ -49,29 +49,24 @@ export default function GrePage() {
             </div>
           </div>
         </div>
-        <div className={styles.heroCard}>
-          <p className={styles.cardTag}>What you get</p>
-          <ul className={styles.cardList}>
-            {OUTPUTS.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <div className={styles.cardNote}>Need quant-only support? We can add explanations for articulation practice.</div>
-        </div>
-      </section>
-
-      <section className={styles.section} aria-labelledby="modules-heading">
-        <div className={styles.sectionHead}>
-          <h2 id="modules-heading">What you will practice</h2>
-          <p>Targeted AWA drafting, verbal pacing, and speaking clarity for interviews and SOP reviews.</p>
-        </div>
-        <div className={styles.moduleGrid}>
-          {MODULES.map((item) => (
-            <article key={item} className={styles.moduleCard}>
-              <h3>{item}</h3>
-              <p className={styles.moduleCopy}>Guided drills with templates, timing checkpoints, and feedback each week.</p>
-            </article>
-          ))}
+        <div className={styles.heroCards}>
+          <div className={styles.heroCard}>
+            <p className={styles.cardTag}>What you get</p>
+            <ul className={styles.cardList}>
+              {OUTPUTS.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <div className={styles.cardNote}>Need quant-only support? We can add explanations for articulation practice.</div>
+          </div>
+          <div className={styles.heroCard}>
+            <p className={styles.cardTag}>What you will practice</p>
+            <ul className={styles.cardList}>
+              {MODULES.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 

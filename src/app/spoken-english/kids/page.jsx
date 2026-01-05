@@ -51,29 +51,24 @@ export default function KidsEnglishMasteryPage() {
             </div>
           </div>
         </div>
-        <div className={styles.heroCard}>
-          <p className={styles.cardTag}>What you get</p>
-          <ul className={styles.cardList}>
-            {OUTPUTS.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <div className={styles.cardNote}>Pods are curated; we place your child within 48 hours.</div>
-        </div>
-      </section>
-
-      <section className={styles.section} aria-labelledby="modules-heading">
-        <div className={styles.sectionHead}>
-          <h2 id="modules-heading">What they will practice</h2>
-          <p>Story-led practice, games, and gentle corrections to keep kids speaking happily and often.</p>
-        </div>
-        <div className={styles.moduleGrid}>
-          {MODULES.map((item) => (
-            <article key={item} className={styles.moduleCard}>
-              <h3>{item}</h3>
-              <p className={styles.moduleCopy}>Interactive prompts, show-and-tell, and playful feedback.</p>
-            </article>
-          ))}
+        <div className={styles.heroCards}>
+          <div className={styles.heroCard}>
+            <p className={styles.cardTag}>What you get</p>
+            <ul className={styles.cardList}>
+              {OUTPUTS.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <div className={styles.cardNote}>Pods are curated; we place your child within 48 hours.</div>
+          </div>
+          <div className={styles.heroCard}>
+            <p className={styles.cardTag}>What they will practice</p>
+            <ul className={styles.cardList}>
+              {MODULES.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
