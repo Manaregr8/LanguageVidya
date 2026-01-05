@@ -156,6 +156,13 @@
   gap: 0.8rem;
 }
 
+.heroCards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+
 .cardTag {
   color: var(--accent-orange);
   font-weight: 700;

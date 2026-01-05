@@ -49,29 +49,24 @@ export default function PtePage() {
             </div>
           </div>
         </div>
-        <div className={styles.heroCard}>
-          <p className={styles.cardTag}>What you get</p>
-          <ul className={styles.cardList}>
-            {OUTPUTS.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <div className={styles.cardNote}>Need fast-track? Ask for a 2-week sprint plan.</div>
-        </div>
-      </section>
-
-      <section className={styles.section} aria-labelledby="modules-heading">
-        <div className={styles.sectionHead}>
-          <h2 id="modules-heading">What you will practice</h2>
-          <p>Each PTE task type with clear templates, timing, and feedback loops.</p>
-        </div>
-        <div className={styles.moduleGrid}>
-          {MODULES.map((item) => (
-            <article key={item} className={styles.moduleCard}>
-              <h3>{item}</h3>
-              <p className={styles.moduleCopy}>Live drills, annotated samples, and timing checkpoints every week.</p>
-            </article>
-          ))}
+        <div className={styles.heroCards}>
+          <div className={styles.heroCard}>
+            <p className={styles.cardTag}>What you get</p>
+            <ul className={styles.cardList}>
+              {OUTPUTS.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <div className={styles.cardNote}>Need fast-track? Ask for a 2-week sprint plan.</div>
+          </div>
+          <div className={styles.heroCard}>
+            <p className={styles.cardTag}>What you will practice</p>
+            <ul className={styles.cardList}>
+              {MODULES.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
